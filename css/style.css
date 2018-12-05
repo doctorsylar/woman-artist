@@ -9,21 +9,21 @@
     font-weight:400;
     font-style: normal;
     src:
-    url(./font/NeueHaasUnicaRegular.woff) format("woff");
+    url(../font/NeueHaasUnicaRegular.woff) format("woff");
 }
 @font-face{
     font-family: neuehaasunica;
     font-weight:700;
     font-style:normal;
     src:
-    url(./font/NeueHaasUnicaBold.woff) format("woff")
+    url(../font/NeueHaasUnicaBold.woff) format("woff")
 }
 @font-face{
     font-family: plateform;
     font-weight: 500;
     font-style: normal;
     src:
-    url(./font/PlatformMedium.woff) format("woff")
+    url(../font/PlatformMedium.woff) format("woff")
 }
 html {
     cursor: default;
