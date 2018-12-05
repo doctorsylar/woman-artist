@@ -1,0 +1,147 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font: inherit;
+}
+@font-face{
+    font-family: neuehaasunica;
+    font-weight:400;
+    font-style: normal;
+    src:
+    url(./font/NeueHaasUnicaRegular.woff) format("woff");
+}
+@font-face{
+    font-family: neuehaasunica;
+    font-weight:700;
+    font-style:normal;
+    src:
+    url(./font/NeueHaasUnicaBold.woff) format("woff")
+}
+@font-face{
+    font-family: plateform;
+    font-weight: 500;
+    font-style: normal;
+    src:
+    url(./font/PlatformMedium.woff) format("woff")
+}
+html {
+    cursor: default;
+    color: #0d0900;
+    background: #f7f3f0;
+    font-family: neuehaasunica;
+    font-size: 4.26667vw;
+    line-height: 6.93333vw;
+    letter-spacing: -0.015em;
+}
+body {
+    display: flex;
+    justify-content: space-between;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+@keyframes slideInDown {
+    0% {
+        transform: translate3d(0px, 101%, 0px);
+    }
+    100% {
+        transform: translate3d(0px, 0px, 0px);
+    }
+}
+.artist-name {
+    font-weight: 600;
+}
+.outer-span {
+    display: block;
+    overflow: hidden;
+}
+.inner-span {
+    display: inline-block;
+    transform: translate3d(0px, 101%, 0px);
+}
+.inner-span.animatedIn {
+    animation: slideInDown 0.7s linear 0.2s 1 forwards;
+}
+/* ASIDE */
+.sidebar {
+    display: none;
+    padding: 15px;
+    width: 20vw;
+    position: relative;
+}
+.sidebar #navigation {
+    position: absolute;
+    left: 1.86667vw;
+    top: 45.77083vw;
+}
+.sidebar .sidenav {
+    list-style: none;
+}
+/* MAIN */
+main {
+    display: block;
+    width: 100%;
+    padding: 15px;
+}
+main .mobile-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+main .mobile-head .mob-contact {
+    text-decoration: underline;
+}
+/* MAIN HEADER */
+.main-header {
+    padding: 25.66667vw 0 1.86667vw;
+}
+.main-header h1 > span {
+    margin: -3.2vw 0 0 -.88vw;
+    text-transform: uppercase;
+}
+.main-header h1 > span:nth-child(2) {
+    margin: -3.2vw 0 0 28.587vw;
+}
+.main-header h1 .inner-span {
+    font-size: 19.73333vw;
+    line-height: 19.73333vw;
+    font-family: plateform;
+    letter-spacing: -.01em;
+}
+
+
+
+
+
+
+
+/* MEDIA */
+@media screen and (min-width: 576px){
+    html {
+        font-size: 1.85714vw;
+        line-height: 2.07143vw;
+    }
+    .sidebar {
+        display: block;
+        padding: 1.86667vw;
+    }
+    main {
+        width: 75vw;
+        padding: 0;
+    }
+    main .mobile-head {
+        display: none;
+    }
+    .main-header {
+        padding: 1.86667vw 0;
+    }
+    .main-header h1 > span {
+        margin: -2.77778vw 0 0 -.625vw;
+    }
+    .main-header h1 .inner-span {
+        font-size: 13.88889vw;
+        line-height: 13.88889vw;
+    }
+}
