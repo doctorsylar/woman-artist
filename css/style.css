@@ -59,10 +59,44 @@ a {
 }
 .inner-span {
     display: inline-block;
-    transform: translate3d(0px, 101%, 0px);
+    transform: translate3d(0px, 150%, 0px);
+    position: relative;
+    overflow: hidden;
 }
 .inner-span.animatedIn {
     animation: slideInDown 0.7s linear 0.2s 1 forwards;
+}
+.underliner {
+    opacity: 0;
+}
+.underliner, .underliner2 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #0d0900;
+    transform: translateX(-200%);
+    transition: transform 0.5s linear;
+}
+.underliner2 {
+    transform: translateX(100%);
+    opacity: 1;
+}
+.inner-span:hover .underliner {
+    transform: translateX(-100%);
+    opacity: 1;
+}
+.inner-span:hover .underliner2 {
+    transform: translateX(0%);
+    opacity: 0;
+}
+.nav-item.active .inner-span .underliner {
+    transform: translateX(-100%);
+    opacity: 1;
+}
+.nav-item.active .inner-span .underliner2 {
+    transform: translateX(0%);
+    opacity: 0;
 }
 /* ASIDE */
 .sidebar {
@@ -72,9 +106,10 @@ a {
     position: relative;
 }
 .sidebar #navigation {
-    position: absolute;
+    position: fixed;
     left: 1.86667vw;
     top: 45.77083vw;
+    transition: top 0.02s linear;
 }
 .sidebar .sidenav {
     list-style: none;
@@ -90,7 +125,7 @@ main .mobile-head {
     justify-content: space-between;
     align-items: center;
 }
-main .mobile-head .mob-contact {
+main .mobile-head .mob-contact a {
     text-decoration: underline;
 }
 /* MAIN HEADER */
@@ -98,7 +133,7 @@ main .mobile-head .mob-contact {
     padding: 25.66667vw 0 1.86667vw;
 }
 .main-header h1 > span {
-    margin: -3.2vw 0 0 -.88vw;
+    margin: -3.2vw 0 0 -0.88vw;
     text-transform: uppercase;
 }
 .main-header h1 > span:nth-child(2) {
@@ -110,11 +145,187 @@ main .mobile-head .mob-contact {
     font-family: plateform;
     letter-spacing: -.01em;
 }
+/* STATEMENT */
+.statement .image img {
+    width: 100%;
+    margin-bottom: 15px;
+}
+.statement .statement-text {
+    position: relative;
+    padding: 15px;
+}
+.statement .statement-text .statement-label {
+    font-size: 2.66667vw;
+    line-height: 3.2vw;
+    text-transform: uppercase;
+    position: absolute;
+    top: 25px;
+    left: 15px;
+}
+.statement .statement-text #text-to-read {
+    font-size: 7.2vw;
+    line-height: 8vw;
+    padding-bottom: 15vw;
+}
+.statement .statement-text span.word-outer{
+    display: inline-block;
+    overflow: hidden;
+    float: left;
+    margin-right: 10px;
+}
+
+.statement .statement-text #text-to-read::after {
+    display: table;
+    content: '';
+    clear: both
+}
+.statement .statement-text .word-outer:first-child {
+    margin-left: 20%;
+}
+.statement .statement-text .word-outer:first-child img {
+    margin-top: 12px;
+}
+.statement .statement-text span.word{
+    display: inline-block;
+}
+.statement #audio-reader{
+    opacity: 0;
+    display: none;
+}
+.statement .statement-text .word-outer:first-child img.sound-off{
+    display: none;
+    margin-top: 10px;
+    height: 35px;
+    width: 35px;
+}
+@keyframes hideWord {
+    0% {
+        transform: translate3d(0px, 0%, 0px);
+    }
+    100% {
+        transform: translate3d(0px, 100%, 0px);
+    }
+}
+@keyframes showWord {
+    0% {
+        transform: translate3d(0px, 100%, 0px);
+    }
+    100% {
+        transform: translate3d(0px, 0%, 0px);
+    }
+}
+.statement .statement-text span.word.hidden-word {
+    animation: hideWord 0.5s linear 0s 1 forwards
+}
+.statement .statement-text span.word.shown-word {
+    animation: showWord 1s linear 0s 1 forwards
+}
+/* ARTWORKS */
+.artworks h2 .inner-span {
+    font-size: 19.73333vw;
+    line-height: 19.73333vw;
+    font-family: plateform;
+    text-transform: uppercase;
+}
+.artworks .works-list {
+    list-style: none;
+}
+.artworks .works-list .work-item {
+    width: 100%;
+    height: 59.73333vw;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    text-transform: uppercase;
+}
+.artworks .works-list .work-item::before {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #0d0900;
+    content: '';
+}
+.artworks .works-list .work-item a {
+    height: 100%;
+    width: 100%;
+}
+.artworks .works-list .work-item .work-name {
+    margin: 7.46667vw 0 0;
+    font-size: 9.6vw;
+    line-height: 9.6vw;
+}
+.artworks .works-list .work-item .work-name .arrow {
+    display: none;
+}
+.artworks .works-list .work-item .work-image {
+    position: absolute;
+    right: 0;
+    width: 26.66667vw;
+    top: 7.46667vw;
+}
+.artworks .works-list .work-item .work-image > img {
+    width: 100%;
+}
+.artworks .works-list .work-item .work-image .img-cover {
+    position: absolute;
+    top: -3px;
+    bottom: -3px;
+    left: -3px;
+    right: -3px;
+    background: #f7f3f0;
+    transition: transform 1.5s linear;
+}
+.artworks .works-list .work-item .work-image .img-cover.uncovered {
+    transform: translateY(-150%);
+}
+.artworks .works-list .work-item .work-date {
+    position: absolute;
+    top: 46.66667vw;
+    left: 0;
+}
+.artworks .works-list .work-item .work-date .outer-span {
+    line-height: 4.26667vw;
+}
+.artworks .exhibitions,
+.artworks .awards {
+    font-size: 4.58333vw;
+    line-height: 4.58333vw;
+    text-transform: uppercase;
+    margin-bottom: 15vw;
+}
+.artworks .exhibitions::after,
+.artworks .awards::after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #0d0900;
+    content: '';
+}
+/* CONTACT */
+.contact {
+    padding-top: 20vw;
+}
+.contact h2 {
+    font-size: 19.73333vw;
+    line-height: 19.73333vw;
+    font-family: plateform;
+    text-transform: uppercase;
+}
+.contact b {
+    font-weight: 600;
+}
 
 
-
-
-
+/* FOOTER */
+footer {
+    padding: 3vw 0;
+    text-align: center;
+}
+.copyright {
+    text-align: center;
+    font-size: 2.66667vw;
+    line-height: 5.33333vw;
+}
 
 
 /* MEDIA */
@@ -143,5 +354,98 @@ main .mobile-head .mob-contact {
     .main-header h1 .inner-span {
         font-size: 13.88889vw;
         line-height: 13.88889vw;
+    }
+    .statement .statement-text .statement-label {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .statement .statement-text #text-to-read {
+        font-size: 2.5vw;
+        line-height: 3.33333vw;
+    }
+    .statement .statement-text .word-outer:first-child {
+        margin-left: 14vw;
+    }
+    .artworks h2 .inner-span {
+        font-size: 13.88889vw;
+        line-height: 13.88889vw;
+    }
+    .artworks .works-list {
+        margin: -0.06944vw 0 0;
+    }
+    .artworks .works-list .work-item {
+        width: 70.13889vw;
+        height: 20.27778vw;
+    }
+    .artworks .works-list .work-item a {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .artworks .works-list .work-item .work-name {
+        margin: 1.875vw 0 0;
+        width: 48.61111vw;
+        font-size: 5vw;
+        line-height: 5vw;
+    }
+    .artworks .works-list .work-item .work-name .inner-span > span {
+        float: left;
+    }
+    .artworks .works-list .work-item .work-name .inner-span > span:last-child::after {
+        display: table;
+        content: '';
+        clear: both;
+    }
+    .artworks .works-list .work-item .work-name .arrow {
+        margin: 1.73611vw 0 0 1.11111vw;
+        width: 1.94444vw;
+        height: 1.94444vw;
+        -webkit-transition: opacity .1s;
+        transition: opacity .1s;
+        opacity: 0;
+        display: block;
+    }
+    .artworks .works-list .work-item:hover .work-name .arrow {
+        opacity: 1;
+    }
+    .artworks .works-list .work-item .work-name .arrow svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .artworks .works-list .work-item .work-image {
+        width: 13.47222vw;
+        height: calc(16.80186vw + 1px);
+        position: relative;
+        overflow: hidden;
+        top: 0;
+        margin: 1.875vw 0 0;
+    }
+    .artworks .works-list .work-item .work-image > img {
+        position: absolute;
+        top: 1px;
+        left: 0;
+        width: 13.47222vw;
+        height: 16.80186vw;
+    }
+    .artworks .works-list .work-item .work-date {
+        padding: 2.22222vw 0 0;
+        width: 8.05556vw;
+        text-align: right;
+        right: 0;
+        top: 0;
+        left: unset;
+    }
+    .artworks .works-list .work-item .work-date .outer-span {
+        line-height: 2.07143vw;
+    }
+    .contact h2 {
+        font-size: 15.27778vw;
+        line-height: 15.27778vw;
+        margin-bottom: 15vw;
+    }
+}
+@media screen and (min-width: 768px){
+    .statement .statement-text .word-outer:first-child {
+        margin-left: 10vw;
     }
 }
