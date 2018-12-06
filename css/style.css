@@ -154,7 +154,7 @@ main .mobile-head .mob-contact a {
 }
 /* STATEMENT */
 .statement .image img {
-    width: 100%;
+    width: 85%;
     margin-bottom: 15px;
 }
 .statement .statement-text {
@@ -398,7 +398,7 @@ footer {
         line-height: 13.88889vw;
     }
     .statement .headed-image {
-        padding: 0 1.86667vw 0 25%
+        padding: 0 1.86667vw 0 14vw;
     }
     .statement .statement-text .statement-label {
         font-size: 14px;
