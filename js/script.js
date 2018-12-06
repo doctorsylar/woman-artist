@@ -6,7 +6,7 @@ $(function () {
     let navigation = $('#navigation');
     let workItems = $('.work-item, .exhibitions, .awards');
 
-    let aboutPos = $('#about').offset().top;
+    let cvPos = $('#cv').offset().top;
     let artworksPos = $('#artworks').offset().top;
     let contactPos = $('#contact').offset().top;
 
@@ -29,7 +29,6 @@ $(function () {
             for (let i = 0; i < innerSpans.length; i++) {
                 let span = $(innerSpans[i]);
                 let offsetTop = span.offset().top;
-                console.log('offsetTop: ' + offsetTop);
                 if ($(document).scrollTop() + $(window).height() > offsetTop - 130) {
                     span.addClass('animatedIn');
                     innerSpans.splice(i, 1);
@@ -80,11 +79,11 @@ $(function () {
                     i--;
                 }
             }
-            if (lastScrollPos < aboutPos) {
+            if (lastScrollPos < artworksPos) {
                 $('.nav-item').removeClass('active');
                 $('.nav-statement').addClass('active');
             }
-            else if (lastScrollPos < artworksPos ) {
+            else if (lastScrollPos < cvPos ) {
                 $('.nav-item').removeClass('active');
                 $('.nav-about').addClass('active');
             }

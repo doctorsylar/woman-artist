@@ -66,24 +66,25 @@ a {
 .inner-span.animatedIn {
     animation: slideInDown 0.7s linear 0.2s 1 forwards;
 }
-.underliner {
+.inner-span .underliner {
     opacity: 0;
 }
-.underliner, .underliner2 {
+.inner-span .underliner, .inner-span .underliner2 {
     position: absolute;
     bottom: 0;
+    left: 0;
     width: 100%;
     height: 1px;
     background: #0d0900;
-    transform: translateX(-200%);
-    transition: transform 0.5s linear;
+    transform: translateX(-100%);
+    transition: transform 0.4s linear;
 }
-.underliner2 {
+.inner-span .underliner2 {
     transform: translateX(100%);
     opacity: 1;
 }
 .inner-span:hover .underliner {
-    transform: translateX(-100%);
+    transform: translateX(0);
     opacity: 1;
 }
 .inner-span:hover .underliner2 {
@@ -91,7 +92,7 @@ a {
     opacity: 0;
 }
 .nav-item.active .inner-span .underliner {
-    transform: translateX(-100%);
+    transform: translateX(0%);
     opacity: 1;
 }
 .nav-item.active .inner-span .underliner2 {
