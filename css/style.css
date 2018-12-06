@@ -109,7 +109,7 @@ a {
     position: fixed;
     left: 1.86667vw;
     top: 45.77083vw;
-    transition: top 0.02s linear;
+    transition: top 0.03s linear;
 }
 .sidebar .sidenav {
     list-style: none;
@@ -262,6 +262,7 @@ main .mobile-head .mob-contact a {
     right: 0;
     width: 26.66667vw;
     top: 7.46667vw;
+    overflow: hidden;
 }
 .artworks .works-list .work-item .work-image > img {
     width: 100%;

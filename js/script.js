@@ -5,6 +5,10 @@ $(function () {
     let imageCovers = [];
     let navigation = $('#navigation');
 
+    let aboutPos = $('#about').offset().top;
+    let artworksPos = $('#artworks').offset().top;
+    let contactPos = $('#contact').offset().top;
+
     initialShow();
 
     function initialShow () {
@@ -20,8 +24,15 @@ $(function () {
                 i--;
             }
         }
-        console.log($(document).scrollTop());
-        console.log($(window).height());
+        for (let i = 0; i < imageCovers.length; i++) {
+            let cover = $(imageCovers[i]);
+            let offsetTop = cover.offset().top;
+            if ($(document).scrollTop() + $(window).height() > offsetTop) {
+                cover.addClass('uncovered');
+                imageCovers.splice(i, 1);
+                i--;
+            }
+        }
     }
     $(window).scroll(function () {
         let lastScrollPos = $(document).scrollTop();
@@ -47,6 +58,22 @@ $(function () {
                     i--;
                 }
             }
+            if (lastScrollPos < aboutPos) {
+                $('.nav-item').removeClass('active');
+                $('.nav-statement').addClass('active');
+            }
+            else if (lastScrollPos < artworksPos ) {
+                $('.nav-item').removeClass('active');
+                $('.nav-about').addClass('active');
+            }
+            else if (lastScrollPos < contactPos ) {
+                $('.nav-item').removeClass('active');
+                $('.nav-artworks').addClass('active');
+            }
+            else {
+                $('.nav-item').removeClass('active');
+                $('.nav-contact').addClass('active');
+            }
         }
     });
     function changeNavigationPos(navPos, lastScrollPos, scrollPos) {
@@ -61,6 +88,13 @@ $(function () {
             navigation.css('top', (navPos - ((lastScrollPos - scrollPos) / 3)) + 'px');
         }
     }
+    // anchor links slow scroll
+    $('.anchor').click(function (event) {
+        event.preventDefault();
+        let id = $(this).attr('href');
+        let top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top}, 600);
+    });
 
 
 });
