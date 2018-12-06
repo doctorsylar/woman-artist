@@ -145,6 +145,9 @@ main .mobile-head .mob-contact a {
     font-family: plateform;
     letter-spacing: -.01em;
 }
+.main-header h1 .inner-span.animatedIn {
+    animation: slideInDown 0.9s linear 0.6s 1 forwards;
+}
 /* STATEMENT */
 .statement .image img {
     width: 100%;
@@ -240,10 +243,14 @@ main .mobile-head .mob-contact a {
 }
 .artworks .works-list .work-item::before {
     display: block;
-    width: 100%;
+    width: 0;
     height: 2px;
     background-color: #0d0900;
     content: '';
+    transition: width 0.7s linear;
+}
+.artworks .works-list .work-item.expanded::before {
+    width: 100%;
 }
 .artworks .works-list .work-item a {
     height: 100%;
@@ -274,10 +281,22 @@ main .mobile-head .mob-contact a {
     left: -3px;
     right: -3px;
     background: #f7f3f0;
-    transition: transform 1.5s linear;
+    transition: transform 0.1s ease-out;
+}
+@keyframes uncoverImage {
+    0% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-95%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
 }
 .artworks .works-list .work-item .work-image .img-cover.uncovered {
-    transform: translateY(-150%);
+    animation: 1.5s uncoverImage 0s 1 forwards;
+    animation-timing-function: ease-out;
 }
 .artworks .works-list .work-item .work-date {
     position: absolute;
@@ -297,10 +316,15 @@ main .mobile-head .mob-contact a {
 .artworks .exhibitions::after,
 .artworks .awards::after {
     display: block;
-    width: 100%;
+    width: 0;
     height: 2px;
     background-color: #0d0900;
     content: '';
+    transition: width 0.7s linear;
+}
+.artworks .exhibitions.expanded::after,
+.artworks .awards.expanded::after {
+    width: 100%;
 }
 /* CONTACT */
 .contact {
@@ -357,8 +381,7 @@ footer {
         line-height: 13.88889vw;
     }
     .statement .headed-image {
-        width: 50%;
-        margin-left: 50%;
+        padding: 0 1.86667vw 0 50%
     }
     .statement .statement-text .statement-label {
         font-size: 14px;
@@ -447,6 +470,10 @@ footer {
         font-size: 15.27778vw;
         line-height: 15.27778vw;
         margin-bottom: 15vw;
+    }
+    .copyright {
+        font-size: 1.11111vw;
+        line-height: 1.66667vw;
     }
 }
 @media screen and (min-width: 768px){

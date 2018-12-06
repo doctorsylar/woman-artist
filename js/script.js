@@ -4,6 +4,7 @@ $(function () {
     let scrollPos = 0;
     let imageCovers = [];
     let navigation = $('#navigation');
+    let workItems = $('.work-item, .exhibitions, .awards');
 
     let aboutPos = $('#about').offset().top;
     let artworksPos = $('#artworks').offset().top;
@@ -12,27 +13,39 @@ $(function () {
     initialShow();
 
     function initialShow () {
-        innerSpans = $('.inner-span');
-        imageCovers = $('.img-cover');
-        for (let i = 0; i < innerSpans.length; i++) {
-            let span = $(innerSpans[i]);
-            let offsetTop = span.offset().top;
-            console.log('offsetTop: ' + offsetTop);
-            if ($(document).scrollTop() + $(window).height() > offsetTop - 130) {
-                span.addClass('animatedIn');
-                innerSpans.splice(i, 1);
-                i--;
+        $('.main-header .port').addClass('animatedIn');
+        setTimeout(function () {
+            $('.main-header .of-one').addClass('animatedIn');
+        }, 200);
+        setTimeout(function () {
+            $('.main-header .woman').addClass('animatedIn');
+        }, 400);
+        setTimeout(function () {
+            $('.main-header .artist').addClass('animatedIn');
+        }, 600);
+        setTimeout(function () {
+            innerSpans = $('.inner-span');
+            imageCovers = $('.img-cover');
+            for (let i = 0; i < innerSpans.length; i++) {
+                let span = $(innerSpans[i]);
+                let offsetTop = span.offset().top;
+                console.log('offsetTop: ' + offsetTop);
+                if ($(document).scrollTop() + $(window).height() > offsetTop - 130) {
+                    span.addClass('animatedIn');
+                    innerSpans.splice(i, 1);
+                    i--;
+                }
             }
-        }
-        for (let i = 0; i < imageCovers.length; i++) {
-            let cover = $(imageCovers[i]);
-            let offsetTop = cover.offset().top;
-            if ($(document).scrollTop() + $(window).height() > offsetTop) {
-                cover.addClass('uncovered');
-                imageCovers.splice(i, 1);
-                i--;
+            for (let i = 0; i < imageCovers.length; i++) {
+                let cover = $(imageCovers[i]);
+                let offsetTop = cover.offset().top;
+                if ($(document).scrollTop() + $(window).height() > offsetTop) {
+                    cover.addClass('uncovered');
+                    imageCovers.splice(i, 1);
+                    i--;
+                }
             }
-        }
+        }, 1000);
     }
     $(window).scroll(function () {
         let lastScrollPos = $(document).scrollTop();
@@ -55,6 +68,15 @@ $(function () {
                 if ($(document).scrollTop() + $(window).height() > offsetTop) {
                     cover.addClass('uncovered');
                     imageCovers.splice(i, 1);
+                    i--;
+                }
+            }
+            for (let i = 0; i < workItems.length; i++) {
+                let workItem = $(workItems[i]);
+                let offsetTop = workItem.offset().top;
+                if ($(document).scrollTop() + $(window).height() > offsetTop) {
+                    workItem.addClass('expanded');
+                    workItems.splice(i, 1);
                     i--;
                 }
             }
