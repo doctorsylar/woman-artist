@@ -356,6 +356,10 @@ footer {
         font-size: 13.88889vw;
         line-height: 13.88889vw;
     }
+    .statement .headed-image {
+        width: 50%;
+        margin-left: 50%;
+    }
     .statement .statement-text .statement-label {
         font-size: 14px;
         line-height: 16px;
