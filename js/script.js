@@ -4,7 +4,7 @@ $(function () {
     let scrollPos = 0;
     let imageCovers = [];
     let navigation = $('#navigation');
-    let workItems = $('.work-item, .exhibitions, .awards');
+    let workItems = $('.work-item, .exhibitions, .awards, .cv-text');
 
     let cvPos = $('#cv').offset().top;
     let artworksPos = $('#artworks').offset().top;

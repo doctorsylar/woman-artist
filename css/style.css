@@ -310,15 +310,13 @@ main .mobile-head .mob-contact a {
 .artworks .works-list .work-item .work-date .outer-span {
     line-height: 4.26667vw;
 }
-.artworks .exhibitions,
-.artworks .awards {
-    font-size: 4.58333vw;
-    line-height: 4.58333vw;
-    text-transform: uppercase;
-    margin-bottom: 15vw;
+#cv .cv-title * {
+    font-size: 7.2vw;
+    line-height: 7.2vw;
+    margin-bottom: 3vw;
 }
-.artworks .exhibitions::after,
-.artworks .awards::after {
+#cv .cv-text::after {
+    margin: 3vw 0 8vw;
     display: block;
     width: 0;
     height: 2px;
@@ -326,9 +324,24 @@ main .mobile-head .mob-contact a {
     content: '';
     transition: width 0.7s linear;
 }
-.artworks .exhibitions.expanded::after,
-.artworks .awards.expanded::after {
+#cv .cv-text.expanded::after {
     width: 100%;
+}
+.artworks .exhibitions h3 * {
+    font-size: 7.2vw;
+    line-height: 7.2vw;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.artworks .exhibitions .exhibition-item {
+    display: flex;
+    padding-bottom: 6vw;
+}
+.artworks .exhibitions .exhibition-item .year {
+    width: 20%;
+}
+.artworks .exhibitions .exhibition-item .text {
+    width: 80%;
 }
 /* CONTACT */
 .contact {
@@ -470,10 +483,21 @@ footer {
     .artworks .works-list .work-item .work-date .outer-span {
         line-height: 2.07143vw;
     }
+    #cv .cv-title * {
+        font-size: 4.58333vw;
+        line-height: 4.58333vw;
+    }
+    #cv .cv-text::after {
+        margin: 6vw 0;
+    }
+    .artworks .exhibitions h3 * {
+        font-size: inherit;
+        line-height: inherit;
+    }
     .contact h2 {
-        font-size: 15.27778vw;
-        line-height: 15.27778vw;
-        margin-bottom: 15vw;
+        font-size: 4.58333vw;
+        line-height: 4.58333vw;
+        margin-bottom: 10vw;
     }
     .copyright {
         font-size: 1.11111vw;
