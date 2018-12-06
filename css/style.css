@@ -115,6 +115,9 @@ a {
 .sidebar .sidenav {
     list-style: none;
 }
+.sidebar .sidenav .nav-item .outer-span {
+    margin-bottom: -0.5vw;
+}
 /* MAIN */
 main {
     display: block;
